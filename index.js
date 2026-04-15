@@ -1,4 +1,5 @@
-require('datejs');
+// To give it the current date
+require('datejs'); 
 
 function mergeUsernames(...args) {
     let allUsers = [];
@@ -21,21 +22,21 @@ function combineUsers(...args) {
     return combinedObject;
 }
 
-// Example usage
-const group1 = ["Lincon", "Ariel"];
-const group2 = ["Alvin", "Charity"];
-const group3 = ["Kerry"];
+
+const group1 = ["Messi", "Ariel"];
+const group2 = ["Bosco", "Evaline"];
+const group3 = ["Nancy"];
 
 console.log(mergeUsernames(group1, group2, group3));
-// ["alice", "bob", "charlie", "diana", "eve"]
+// ["Messi", "Ariel", "Bosco", "Evaline", "Nancy"]
 
-console.log(combineUsers(group7, group10, group11));
+console.log(combineUsers(group1, group2, group3));
 // {
-//   users: ["Henry", "Ariel", "Eva", "Shello", "Bosco"],
+//   users: ["Messi", "Ariel", "Bosco", "Evaline", "Nancy"],
 //   merge_date: "4/14/2026"
 // }
 
+module.exports = { mergeUsernames, combineUsers };
 module.exports = {
-    mergeUsernames,
-    combineUsers
+  ...(typeof combineUsers !== 'undefined' && { combineUsers })
 };
